@@ -1,37 +1,41 @@
-# final-project-frontend
+# Inspectre
 
-##Team: 
+## Team: 
 * Andrew Kim
 * Brannon Starnes
 * Min Xie
 * Raaj Vardhan
 * Scott Lease
 
+## Description
+
+Searching for a fright? Inspectre is an application that lets users search for haunted locations of interest near them. Locations will contain backstories, reviews of the location, and pictures.
+
 ## Cooperation Plan
 
 * What are the key strengths of each person on the team?
   * Andrew - affinity for the backend work
-  * Brannon - frontend, flexibile in team environment, easy-going, reigning things back in.
+  * Brannon - frontend, flexible in a team environment, easy-going, reigning things back in.
   * Min - backend, problem-solve, debug
   * Raaj - communication, project management, organization
   * Scott - experimenter, organizing
 * How can you best utilize these strengths in the execution of your project?
-  * Pair people together based on their profiencies and cover each other's weaknesses. 
+  * Pair people together based on their proficiencies and cover each other's weaknesses. 
 * In which professional competencies do you each want to develop greater strength?
   * Andrew - project planning
   * Brannon - get better at backend stuff
-  * Min - organization
+  * Min - organization abilities
   * Raaj - frontend familiarity
   * Scott - frontend familiarity
 * Knowing that every person in your team needs to understand all aspects of the project, how do you plan to approach the day-to-day work?
   * Morning standup meetings, make sure everyone is aware of the moving parts and what needs to happen before starting work for the day. 9:00am-9:30am
-  * Post-lunch meetings to plan second half of work day 1:30pm-2:00pm
-  * End of day meeting to discuss integrating the work done over the day and review pushes and plan afterhours work. 5:00pm-5:30pm
+  * Post-lunch meetings to plan the second half of workday 1:30 pm-2:00 pm
+  * End of day meeting to discuss integrating the work done over the day and review pushes and plan after-hours work. 5:00pm-5:30pm
 
 ## Conflict Plan
 
 * What will be your group’s process to resolve conflict, when it arises?
-  * Bring it up in meetings/open channel of communication. We're adults here.
+  * Bring it up in meetings/open channels of communication. We're adults here.
 * What will your team do if one person is taking over the project and not letting the other members contribute?
   * First of all, no one will really want to. If it happens we'll communicate and escalate to TA/Instructors if unresolved.
 * How will you approach each other and the challenges of the project knowing that it is impossible for all members to be at the exact same place in understanding and skill level?
@@ -44,7 +48,7 @@
 ## Communication Plan
 
 * What hours will you be available to communicate?
-  * Open for messaging 24hours, expect response between 9am-6pm PST.
+  * Open for messaging 24hours, expect a response between 9:00 am-6:00 pm PST.
 * What platforms will you use to communicate (ie. Slack, phone …)?
   * Slack
 * How often will you take breaks?
@@ -56,12 +60,12 @@
 * What is your strategy for ensuring everyone’s voice is heard?
   * Everyone needs to talk at standup. Equal time for sharing. Switch roles of meeting moderator, scribe, etc. every meeting.
 How will you ensure that you are creating a safe environment where everyone feels comfortable speaking up?
-  * Speak with respect, not shooting down people's ideas, disagree respectfull. Essentially treat everyone with dignity. 
+  * Speak with respect, not shooting down people's ideas, disagree respectfully. Essentially treat everyone with dignity. 
 
 ## Work Plan
 
 * How you will identify tasks, assign tasks, know when they are complete, and manage work in general?
-  * Trello. Breakdown features of application into tangible parts. Assign teams to tackle those parts. Collaborate with entire team during integration and push into main branch - end of day meeting.
+  * Trello. Break down features of the application into tangible parts. Assign teams to tackle those parts. Collaborate with entire team during integration and push into the main branch - end of day meeting.
 * What project management tool will be used?
   * Trello, Envision, and Miro
   
