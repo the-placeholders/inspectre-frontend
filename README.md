@@ -88,7 +88,8 @@ How will you ensure that you are creating a safe environment where everyone feel
 * How often will you merge?
   * As often as needed for staging. Once a day for main.
 * How will you communicate that it’s time to merge?
-  * Once we push it up!
- we can message each other to take a look.
-![Uploading In(specter).png…]()
-[In(specter)](https://user-images.githubusercontent.com/79185881/141835711-1c92d75e-5777-4d6e-ae20-d1523a83dd22.png)
+  * Once we push it up we can message each other to take a look.
+
+<img src = './images/Inspecter.png'>
+
+<a href = 'https://trello.com/b/RzdRKIEg/inspectre-project-board'>User Stories</a>
