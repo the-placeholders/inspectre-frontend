@@ -93,3 +93,5 @@ How will you ensure that you are creating a safe environment where everyone feel
 <img src = './images/Inspecter.png'>
 
 <a href = 'https://trello.com/b/RzdRKIEg/inspectre-project-board'>User Stories</a>
+
+<img src = 'https://github.com/the-placeholders/inspectre-frontend/blob/andrew/images/LocationSchema.PNG?raw=true'>
