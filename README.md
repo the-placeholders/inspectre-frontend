@@ -99,3 +99,7 @@ Searching for a fright? Inspectre is an application that lets users search for h
 ## Design Wireframe
 
 <img src= './images/InspectreWireFrame.jpg'>
+
+## Credits
+
+Glitch Animation CSS: https://www.youtube.com/watch?v=7Xyg8Ja7dyY
