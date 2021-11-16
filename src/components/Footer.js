@@ -11,7 +11,10 @@ class Footer extends React.Component {
         bg="dark"
         variant="dark"
       >
-        FOOTER INFO
+        <p style={{ color: "grey", margin: "auto" }}>
+          {" "}
+          &copy; The Placeholders 2021{" "}
+        </p>
       </Navbar>
     );
   }
