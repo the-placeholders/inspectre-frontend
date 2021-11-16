@@ -1,8 +1,7 @@
 import React from "react";
 import { Navbar, NavItem } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./css/Header.css";
-import LogoutButton from "./components/LogoutButton.js";
+import LogoutButton from "./LogoutButton.js";
 
 class Header extends React.Component {
   render() {
