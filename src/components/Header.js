@@ -7,7 +7,7 @@ class Header extends React.Component {
   render() {
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand>LOGO Goes Here</Navbar.Brand>
+        <Navbar.Brand>{`In\{spectre\}`}</Navbar.Brand>
         {this.props.user && (
           <>
             <NavItem>
