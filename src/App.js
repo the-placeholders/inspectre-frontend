@@ -8,52 +8,54 @@ import SearchPage from "./components/SearchPage.js";
 import ResultsPage from "./components/ResultsPage.js";
 import About from "./components/About.js";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
 // import Profile from "./Profile.js";
 import { withAuth0 } from "@auth0/auth0-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-        hauntedPlaces : []
-    }
+      hauntedPlaces: [],
+    };
   }
 
-//   this is for library of death
-//   getUserLibrary = async()=>{
-//     if (this.props.auth0.isAuthenticated) {
-//       const res = await this.props.auth0.getIdTokenClaims();
-//       const jwt = res.__raw;
-//         console.log(jwt)
-//       const config = {
-//         headers: { "Authorization": `Bearer ${jwt}` },
-//         method: 'get',
-//         baseURL: process.env.REACT_APP_SERVER_URL,
-//         url: 'library'
-//       }
-//       const userLibrary = await axios(config);
-//       this.setState({ userLibrary: userLibrary.data });
-//   }
-// }
+  //   this is for library of death
+  //   getUserLibrary = async()=>{
+  //     if (this.props.auth0.isAuthenticated) {
+  //       const res = await this.props.auth0.getIdTokenClaims();
+  //       const jwt = res.__raw;
+  //         console.log(jwt)
+  //       const config = {
+  //         headers: { "Authorization": `Bearer ${jwt}` },
+  //         method: 'get',
+  //         baseURL: process.env.REACT_APP_SERVER_URL,
+  //         url: 'library'
+  //       }
+  //       const userLibrary = await axios(config);
+  //       this.setState({ userLibrary: userLibrary.data });
+  //   }
+  // }
 
-// componentDidMount(){
-//   this.getUserLibrary();
-//   }
+  // componentDidMount(){
+  //   this.getUserLibrary();
+  //   }
 
-  getHauntedPlaces = async(cityName , stateName) => {
-      const url = `${process.env.REACT_APP_SERVER_URL}/locations?city=${cityName}&state=${stateName}`;//check with be
-      try{
+  getHauntedPlaces = async (cityName, stateName) => {
+    const url = `${process.env.REACT_APP_SERVER_URL}/location?city=${cityName}&state=${stateName}`;
+    console.log(process.env.REACT_APP_SERVER_URL);
+    console.log(url);
+    try {
+      console.log("HELLO");
       let response = await axios.get(url);
-      this.setState({hauntedPlaces:response.data})
-      console.log(response.data);}
-      catch(err){
-      this.setState({error:true})
-      }
+      console.log(response.data);
+      this.setState({ hauntedPlaces: response.data });
+    } catch (err) {
+      this.setState({ error: true });
     }
-  
-
+  };
 
   render() {
     return (
@@ -63,10 +65,10 @@ class App extends React.Component {
         </Header>
         <Router>
           <Switch>
-            <Route exact path ="/">
-        <Main  />
-        </Route>
-        </Switch>
+            <Route exact path="/">
+              <Main />
+            </Route>
+          </Switch>
         </Router>
         {/* {this.props.auth0.isAuthenticated && (
           <> */}
@@ -76,15 +78,17 @@ class App extends React.Component {
               <LibraryOfDeath /*user={this.props.auth0.user}*/ />
             </Route>
             <Route exact path="/searchpage">
-            
-          <SearchPage hauntedPlaces={this.state.hauntedPlaces} getHauntedPlaces = {this.getHauntedPlaces}/>
+              <SearchPage
+                hauntedPlaces={this.state.hauntedPlaces}
+                getHauntedPlaces={this.getHauntedPlaces}
+              />
             </Route>
             <Route exact path="/about">
               <About />
             </Route>
           </Switch>
         </Router>
-        
+
         {/* </>
         )} */}
         <Footer />
