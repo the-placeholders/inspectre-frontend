@@ -121,7 +121,7 @@ class SearchPage extends React.Component {
         </Row>
         {this.props.hauntedPlaces.length > 0 &&
           this.props.hauntedPlaces.map((place) => (
-            <ResultsPage place={place} />
+            <ResultsPage place={place} addLibraryPlaces={this.props.addLibraryPlaces}/>
           ))}
         {this.props.hauntedPlaces.length > 0 && (
           <HauntedMap hauntedPlaces={this.props.hauntedPlaces} />

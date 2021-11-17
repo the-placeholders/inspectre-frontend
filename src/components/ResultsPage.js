@@ -5,12 +5,18 @@ import Button from "react-bootstrap/Button";
 class ResultsPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { noOfClicks: 0 };
+    this.state = { noOfClicks: 0 ,
+                  
+    };
   }
 
   handleClick = () => {
     this.setState({ noOfClicks: this.state.noOfClicks + 1 });
   };
+
+  handleAdd =()=>{
+    this.props.addLibraryPlaces(this.props.place)
+  }
   render() {
     return (
       <Card style={{ width: "18rem" }}>
@@ -34,6 +40,7 @@ class ResultsPage extends React.Component {
             Favourite
           </Button>
           <p>No of favourites &#xf6e2;: {this.state.noOfClicks}</p>
+          <Button onClick = {this.handleAdd}>Add to my library</Button>
         </Card.Body>
       </Card>
     );

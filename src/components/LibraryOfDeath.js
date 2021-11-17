@@ -6,11 +6,11 @@ class LibraryOfDeath extends React.Component {
   componentDidMount() {
     this.props.getUserLibrary();
   }
-
+  
   render() {
     return (
       <>
-        <h1>LibraryOfDeath</h1>
+        <h1></h1>
       </>
     );
   }

@@ -9,28 +9,7 @@ class Header extends React.Component {
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Navbar.Brand id="logo">{`In\{spectre\}`}</Navbar.Brand>
-        {this.props.user && (
-          <>
-            <NavItem>
-              <Link to="/libraryofdeath" className="nav-link">
-                Library of Death
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/searchpage" className="nav-link">
-                Find Haunts
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/about" className="nav-link">
-                About
-              </Link>
-            </NavItem>
-          </>
-        )}
-        {/*DONE TODO: if the user is logged in, render the `LogoutButton` */}
-        {this.props.user && <LogoutButton />}
-      </Navbar>
+        </Navbar>
     );
   }
 }

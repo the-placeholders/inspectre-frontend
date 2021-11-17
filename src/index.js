@@ -9,7 +9,7 @@ ReactDOM.render(
     clientId={process.env.REACT_APP_AUTH_CLIENT_ID}
     redirectUri={process.env.REACT_APP_AUTH_REDIRECT_URI}
   >
-    <App />,
+    <App />
   </Auth0Provider>,
   document.getElementById("root")
 );

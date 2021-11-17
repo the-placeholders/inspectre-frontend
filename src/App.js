@@ -7,6 +7,7 @@ import LibraryOfDeath from "./components/LibraryOfDeath.js";
 import SearchPage from "./components/SearchPage.js";
 // import ResultsPage from "./components/ResultsPage.js";
 import About from "./components/About.js";
+import HeaderUser from "./components/HeaderUser.js"
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 // import Profile from "./Profile.js";
@@ -20,7 +21,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       hauntedPlaces: [],
-      user: null,
+      savedPlaces: []
     };
   }
 
@@ -28,7 +29,7 @@ class App extends React.Component {
     if (this.props.auth0.isAuthenticated) {
       const res = await this.props.auth0.getIdTokenClaims();
       const jwt = res.__raw;
-      console.log(jwt);
+      
       const config = {
         headers: { Authorization: `Bearer ${jwt}` },
         method: "get",
@@ -37,11 +38,12 @@ class App extends React.Component {
       };
       const userLibrary = await axios(config);
       console.log(userLibrary.data);
-      console.log(userLibrary.data[0].email);
+      
       this.setState({
-        userLibrary: userLibrary.data,
-        user: userLibrary.data.email,
+        savedPlaces: userLibrary.data[0].locations,
+        
       });
+      console.log(this.state.savedPlaces)
     } else {
       console.log("NOT IN LIB");
     }
@@ -64,35 +66,72 @@ class App extends React.Component {
     }
   };
 
+
+  addLibraryPlaces = (addedPlace) =>{
+    this.setState({savedPlaces :[...this.state.savedPlaces ,addedPlace]})
+    console.log(this.state.savedPlaces)
+    this.putUserLibrary()
+  }
+
+  putUserLibrary = async () => {
+    if (this.props.auth0.isAuthenticated) {
+      const res = await this.props.auth0.getIdTokenClaims();
+      const jwt = res.__raw;
+      console.log(jwt);
+      const config = {
+        headers: { Authorization: `Bearer ${jwt}` },
+        method: "put",
+        baseURL: process.env.REACT_APP_SERVER_URL,
+        url: "/library",
+        data: {locations :this.state.savedPlaces,
+                email : this.props.auth0.user.email,
+                reviews : []
+      }
+      };
+      const userLibrary = await axios(config);
+      console.log(userLibrary.data);
+      this.getUserLibrary()
+     
+    } else {
+      console.log("not put");
+    }
+  };
+  
   render() {
     return (
       <>
-        <Header user={this.state.user} />
+        
         <Router>
           <Switch>
             <Route exact path="/">
+            <Header />
               <Main />
             </Route>
           </Switch>
         </Router>
         {this.props.auth0.isAuthenticated && (
           <>
+          
             <Router>
+            <HeaderUser user = {this.props.auth0.user.email}/>
               <Switch>
                 <Route exact path="/libraryofdeath">
                   <LibraryOfDeath
                     getUserLibrary={this.getUserLibrary}
                     user={this.props.auth0.user}
+                    savedPlaces ={this.state.savedPlaces}
                   />
                 </Route>
                 <Route exact path="/searchpage">
                   <SearchPage
                     hauntedPlaces={this.state.hauntedPlaces}
                     getHauntedPlaces={this.getHauntedPlaces}
+                    user={this.props.auth0.user}
+                    addLibraryPlaces={this.addLibraryPlaces}
                   />
                 </Route>
                 <Route exact path="/about">
-                  <About />
+                  <About user={this.props.auth0.user}/>
                 </Route>
               </Switch>
             </Router>
