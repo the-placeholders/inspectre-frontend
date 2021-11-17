@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import ResultsPage from "./ResultsPage";
+import "../css/searchpage.css";
 
 class SearchPage extends React.Component {
   constructor(props) {

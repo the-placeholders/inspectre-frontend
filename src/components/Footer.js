@@ -1,11 +1,18 @@
 import React from "react";
+import Navbar from "react-bootstrap/Navbar";
 
 class Footer extends React.Component {
   render() {
     return (
-      <>
-        <h1>Footer</h1>
-      </>
+      <Navbar
+        fixed="bottom"
+        collapseOnSelect
+        expand="lg"
+        bg="dark"
+        variant="dark"
+      >
+        FOOTER INFO
+      </Navbar>
     );
   }
 }
