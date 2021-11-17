@@ -4,6 +4,8 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Warning from "./Warning.js";
 import Container from "react-bootstrap/Container";
+import LoginButton from "./LoginButton.js";
+import { withAuth0 } from "@auth0/auth0-react";
 
 class Main extends React.Component {
   render() {
@@ -20,14 +22,19 @@ class Main extends React.Component {
         />
         {/* <Row> */}
 
-        <Container style={{ width: "50em" }}>
+        <Container
+          style={{
+            width: "50em",
+          }}
+        >
           <Row>
             <Warning />
           </Row>
           <Row>
-            <Button style={{ margin: "auto", width: "100px" }} variant="dark">
+            <LoginButton />
+            {/* <Button style={{ margin: "auto", width: "100px" }} variant="dark">
               Enter
-            </Button>
+            </Button> */}
           </Row>
         </Container>
         {/* </Row> */}
@@ -37,4 +44,4 @@ class Main extends React.Component {
   }
 }
 
-export default Main;
+export default withAuth0(Main);

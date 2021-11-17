@@ -5,7 +5,7 @@ import Main from "./components/Main.js";
 import Footer from "./components/Footer.js";
 import LibraryOfDeath from "./components/LibraryOfDeath.js";
 import SearchPage from "./components/SearchPage.js";
-import ResultsPage from "./components/ResultsPage.js";
+// import ResultsPage from "./components/ResultsPage.js";
 import About from "./components/About.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
@@ -20,36 +20,42 @@ class App extends React.Component {
     super(props);
     this.state = {
       hauntedPlaces: [],
+      user: null,
     };
   }
 
-  //   this is for library of death
-  //   getUserLibrary = async()=>{
-  //     if (this.props.auth0.isAuthenticated) {
-  //       const res = await this.props.auth0.getIdTokenClaims();
-  //       const jwt = res.__raw;
-  //         console.log(jwt)
-  //       const config = {
-  //         headers: { "Authorization": `Bearer ${jwt}` },
-  //         method: 'get',
-  //         baseURL: process.env.REACT_APP_SERVER_URL,
-  //         url: 'library'
-  //       }
-  //       const userLibrary = await axios(config);
-  //       this.setState({ userLibrary: userLibrary.data });
-  //   }
-  // }
+  getUserLibrary = async () => {
+    if (this.props.auth0.isAuthenticated) {
+      const res = await this.props.auth0.getIdTokenClaims();
+      const jwt = res.__raw;
+      console.log(jwt);
+      const config = {
+        headers: { Authorization: `Bearer ${jwt}` },
+        method: "get",
+        baseURL: process.env.REACT_APP_SERVER_URL,
+        url: "/library",
+      };
+      const userLibrary = await axios(config);
+      console.log(userLibrary.data);
+      console.log(userLibrary.data[0].email);
+      this.setState({
+        userLibrary: userLibrary.data,
+        user: userLibrary.data.email,
+      });
+    } else {
+      console.log("NOT IN LIB");
+    }
+  };
 
-  // componentDidMount(){
+  // componentDidMount() {
   //   this.getUserLibrary();
-  //   }
+  // }
 
   getHauntedPlaces = async (cityName, stateName) => {
     const url = `${process.env.REACT_APP_SERVER_URL}/location?city=${cityName}&state=${stateName}`;
     console.log(process.env.REACT_APP_SERVER_URL);
     console.log(url);
     try {
-      console.log("HELLO");
       let response = await axios.get(url);
       console.log(response.data);
       this.setState({ hauntedPlaces: response.data });
@@ -61,9 +67,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Header>
-          <LoginButton />
-        </Header>
+        <Header user={this.state.user} />
         <Router>
           <Switch>
             <Route exact path="/">
@@ -71,32 +75,33 @@ class App extends React.Component {
             </Route>
           </Switch>
         </Router>
-        {/* {this.props.auth0.isAuthenticated && (
-          <> */}
-        <Router>
-          <Switch>
-            <Route exact path="/libraryofdeath">
-              <LibraryOfDeath /*user={this.props.auth0.user}*/ />
-            </Route>
-            <Route exact path="/searchpage">
-              <SearchPage
-                hauntedPlaces={this.state.hauntedPlaces}
-                getHauntedPlaces={this.getHauntedPlaces}
-              />
-            </Route>
-            <Route exact path="/about">
-              <About />
-            </Route>
-          </Switch>
-        </Router>
-
-        {/* </>
-        )} */}
+        {this.props.auth0.isAuthenticated && (
+          <>
+            <Router>
+              <Switch>
+                <Route exact path="/libraryofdeath">
+                  <LibraryOfDeath
+                    getUserLibrary={this.getUserLibrary}
+                    user={this.props.auth0.user}
+                  />
+                </Route>
+                <Route exact path="/searchpage">
+                  <SearchPage
+                    hauntedPlaces={this.state.hauntedPlaces}
+                    getHauntedPlaces={this.getHauntedPlaces}
+                  />
+                </Route>
+                <Route exact path="/about">
+                  <About />
+                </Route>
+              </Switch>
+            </Router>
+          </>
+        )}
         <Footer />
       </>
     );
   }
 }
 
-// export default withAuth0(App);
-export default App;
+export default withAuth0(App);

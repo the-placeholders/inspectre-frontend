@@ -103,3 +103,4 @@ Searching for a fright? Inspectre is an application that lets users search for h
 ## Credits
 
 Glitch Animation CSS: https://www.youtube.com/watch?v=7Xyg8Ja7dyY
+Prefers Reduced Motion: https://web.dev/prefers-reduced-motion/#(bonus)-forcing-reduced-motion-on-all-websites
