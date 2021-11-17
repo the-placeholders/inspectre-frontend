@@ -3,14 +3,13 @@
   src: url(../fonts/watcher.ttf);
 }
 
-
 #logo {
   margin-left: 20px;
-  font-family: scaryfont;
+  filter: drop-shadow(0 1px 3px rgb(0, 238, 255));
 }
 
 #right-nav {
-  margin-left:60%;
+  margin-left: 60%;
 }
 .g-2 {
   justify-content: center;
@@ -21,5 +20,5 @@ a.nav-link {
 }
 
 a:link {
-  color:white;
+  color: white;
 }
