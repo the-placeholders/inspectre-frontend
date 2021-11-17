@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import ResultsPage from "./ResultsPage";
+import HauntedMap from "./HauntedMap"; 
 
 class SearchPage extends React.Component {
   constructor(props) {
@@ -28,7 +29,6 @@ class SearchPage extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.getHauntedPlaces(this.state.cityName, this.state.stateName);
-    console.log("buttonclicked");
   };
   render() {
     return (
@@ -120,6 +120,7 @@ class SearchPage extends React.Component {
           this.props.hauntedPlaces.map((place) => (
             <ResultsPage place={place} />
           ))}
+        {this.props.hauntedPlaces.length > 0 && <HauntedMap hauntedPlaces={this.props.hauntedPlaces} />}
       </>
     );
   }
