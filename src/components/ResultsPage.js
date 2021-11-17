@@ -23,7 +23,7 @@ class ResultsPage extends React.Component {
           }
           alt={this.props.place.city}
         />
-        <Card.Body>
+        <Card.Body style={{ backgroundColor: "grey" }}>
           <Card.Title>{this.props.place.location}</Card.Title>
           <Card.Text>
             {this.props.place.description}

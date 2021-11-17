@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import ResultsPage from "./ResultsPage";
-import HauntedMap from "./HauntedMap"; 
+import HauntedMap from "./HauntedMap";
 import "../css/searchpage.css";
 
 class SearchPage extends React.Component {
@@ -37,6 +37,7 @@ class SearchPage extends React.Component {
         <Row className="g-2">
           <Col md={3}>
             <FloatingLabel
+              style={{ color: "grey" }}
               controlId="floatingInputGrid"
               label="Enter A City Name"
             >
@@ -50,6 +51,7 @@ class SearchPage extends React.Component {
           </Col>
           <Col md={2}>
             <FloatingLabel
+              style={{ color: "grey" }}
               controlId="floatingSelectGrid"
               label="Please Select A State"
             >
@@ -121,7 +123,9 @@ class SearchPage extends React.Component {
           this.props.hauntedPlaces.map((place) => (
             <ResultsPage place={place} />
           ))}
-        {this.props.hauntedPlaces.length > 0 && <HauntedMap hauntedPlaces={this.props.hauntedPlaces} />}
+        {this.props.hauntedPlaces.length > 0 && (
+          <HauntedMap hauntedPlaces={this.props.hauntedPlaces} />
+        )}
       </>
     );
   }
