@@ -1,10 +1,19 @@
 import React from "react";
+import Title from "./Title.js";
 
 class Main extends React.Component {
   render() {
     return (
       <>
-        <h1>Main</h1>
+        <Title
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+        />
+        {/* <LoginForm></LoginForm> */}
       </>
     );
   }
