@@ -13,6 +13,7 @@ import axios from "axios";
 import { withAuth0 } from "@auth0/auth0-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./css/app.css";
 
 class App extends React.Component {
   constructor(props) {

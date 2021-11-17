@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import ResultsPage from "./ResultsPage";
 import HauntedMap from "./HauntedMap"; 
+import "../css/searchpage.css";
 
 class SearchPage extends React.Component {
   constructor(props) {
