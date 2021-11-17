@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 class Warning extends React.Component {
   render() {
     return (
-      <div style={{ margin: "auto", width: "1000px" }}>
+      <div style={{ position: "relative", width: "1000px" }}>
         <p id="warning">
           <str style={{ color: "red" }}>WARNING: </str>the locations described
           beyond this page may be in any manner of disrepair, public or private,
