@@ -7,17 +7,25 @@ class ResultsPage extends React.Component {
     super(props);
     this.state = { noOfClicks: 0 ,
       noOfConfirms: 0,
-                  
+      noOfDenys: 0,
     };
   }
 
-  handleClick = () => {
-    this.setState({ noOfClicks: this.state.noOfClicks + 1 });
+  updateTotal = () => {
+    this.setState({noOfClicks: this.state.noOfConfirms + this.state.noOfDenys + 1});
+  }
+
+  handleConfirm = () => {
+    this.setState({ noOfConfirms: this.state.noOfConfirms + 1 });
+    this.updateTotal();
   };
 
-  handleConfirm =() =>{
-    this.setState({ noOfConfirms: this.state.noOfConfirms + 1})
+  handleDeny = () =>{
+    this.setState({ noOfDenys: this.state.noOfDenys + 1})
+    this.updateTotal();
   }
+
+
   handleAdd =()=>{
     this.props.addLibraryPlaces(this.props.place)
   }
@@ -40,14 +48,13 @@ class ResultsPage extends React.Component {
             Latitude : {this.props.place.latitude}
             Longitude :{this.props.place.longitude}
           </Card.Text>
-          <span> Vote here! </span>
-          <Button variant="secondary" onClick={this.handleClick}>
+          <Button variant="secondary" onClick={this.handleConfirm}>
+            👻{`: ${this.state.noOfConfirms}`}
           </Button>
-          <p>Vistis &#xf6e2;: {this.state.noOfClicks}</p>
-          <Button  variant="secondary" onClick={this.handleConfirm}>
-            
+          <Button  variant="secondary" onClick={this.handleDeny}>
+            🚫{`: ${this.state.noOfDenys}`}
           </Button>
-          <p>Encounters &#xf6e2;: {this.state.noOfConfirms}</p>
+          <p>Visits: {this.state.noOfClicks}</p>
           <Button variant="secondary" onClick = {this.handleAdd}>Add to my library</Button>
         </Card.Body>
       </Card>
