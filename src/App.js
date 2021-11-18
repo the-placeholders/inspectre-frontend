@@ -29,7 +29,7 @@ class App extends React.Component {
     if (this.props.auth0.isAuthenticated) {
       const res = await this.props.auth0.getIdTokenClaims();
       const jwt = res.__raw;
-      
+
       const config = {
         headers: { Authorization: `Bearer ${jwt}` },
         method: "get",
@@ -38,11 +38,11 @@ class App extends React.Component {
       };
       const userLibrary = await axios(config);
       console.log(userLibrary.data);
-      
+
       this.setState({
         savedPlaces: userLibrary.data[0].locations,
-        
       });
+
       console.log(this.state.savedPlaces)
     } else {
       console.log("NOT IN LIB");
@@ -67,8 +67,8 @@ class App extends React.Component {
   };
 
 
-  addLibraryPlaces = (addedPlace) =>{
-    this.setState({savedPlaces :[...this.state.savedPlaces ,addedPlace]})
+  addLibraryPlaces = (addedPlace) => {
+    this.setState({ savedPlaces: [...this.state.savedPlaces, addedPlace] })
     console.log(this.state.savedPlaces)
     this.putUserLibrary()
   }
@@ -83,43 +83,44 @@ class App extends React.Component {
         method: "put",
         baseURL: process.env.REACT_APP_SERVER_URL,
         url: "/library",
-        data: {locations :this.state.savedPlaces,
-                email : this.props.auth0.user.email,
-                reviews : []
-      }
+        data: {
+          locations: this.state.savedPlaces,
+          email: this.props.auth0.user.email,
+          reviews: []
+        }
       };
       const userLibrary = await axios(config);
       console.log(userLibrary.data);
       this.getUserLibrary()
-     
+
     } else {
       console.log("not put");
     }
   };
-  
+
   render() {
     return (
       <>
-        
+
         <Router>
           <Switch>
             <Route exact path="/">
-            <Header />
+              <Header />
               <Main />
             </Route>
           </Switch>
         </Router>
         {this.props.auth0.isAuthenticated && (
           <>
-          
+
             <Router>
-            <HeaderUser user = {this.props.auth0.user.email}/>
+              <HeaderUser user={this.props.auth0.user.email} />
               <Switch>
                 <Route exact path="/libraryofdeath">
                   <LibraryOfDeath
                     getUserLibrary={this.getUserLibrary}
                     user={this.props.auth0.user}
-                    savedPlaces ={this.state.savedPlaces}
+                    savedPlaces={this.state.savedPlaces}
                   />
                 </Route>
                 <Route exact path="/searchpage">
@@ -131,7 +132,7 @@ class App extends React.Component {
                   />
                 </Route>
                 <Route exact path="/about">
-                  <About user={this.props.auth0.user}/>
+                  <About user={this.props.auth0.user} />
                 </Route>
               </Switch>
             </Router>

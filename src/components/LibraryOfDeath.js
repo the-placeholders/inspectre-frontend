@@ -1,4 +1,5 @@
 import React from "react";
+import HauntedCarousel from "./HauntedCarousel";
 
 class LibraryOfDeath extends React.Component {
   //app.get
@@ -10,7 +11,8 @@ class LibraryOfDeath extends React.Component {
   render() {
     return (
       <>
-        <h1></h1>
+        <h1>Library of Death</h1>
+        <HauntedCarousel savedPlaces={this.props.savedPlaces}/>
       </>
     );
   }
