@@ -27,7 +27,7 @@ export default class HauntedMap extends Component {
 
     render() {
         return (
-            <MapContainer center={[this.state.lat, this.state.lon]} zoom={10} scrollWheelZoom={false} style={{ width: '50%', height: '500px' }}>
+            <MapContainer center={[this.state.lat, this.state.lon]} zoom={10} scrollWheelZoom={false} style={{ width: '80%', height: '600px' }}>
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -12,30 +12,32 @@ class HeaderUser extends React.Component {
         <Navbar.Brand id="logo">{`In\{spectre\}`}</Navbar.Brand>
         {this.props.user && (
           <>
-          
+
             <NavItem>
-              
+
               <Link to="/libraryofdeath" className="nav-link">
                 Library of Death
               </Link>
-              
+
             </NavItem>
             <NavItem>
-              
+
               <Link to="/searchpage" className="nav-link">
                 Find Haunts
               </Link>
-              
+
             </NavItem>
-            <NavItem>
-              
-              
-              <Link to="/about" className="nav-link">
-                About
-              </Link>
-              
-              
-            </NavItem>
+            <div id="right-nav">
+              <NavItem>
+
+
+                <Link to="/about" className="nav-link">
+                  About
+                </Link>
+
+
+              </NavItem>
+            </div>
           </>
         )}
         {/*DONE TODO: if the user is logged in, render the `LogoutButton` */}

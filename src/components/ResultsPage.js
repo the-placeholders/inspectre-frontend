@@ -19,7 +19,7 @@ class ResultsPage extends React.Component {
   }
   render() {
     return (
-      <Card style={{ width: "18rem" }}>
+      <Card style={{ width: "26rem" }}>
         <Card.Img
           variant="top"
           src={
@@ -36,11 +36,11 @@ class ResultsPage extends React.Component {
             Latitude : {this.props.place.latitude}
             Longitude :{this.props.place.longitude}
           </Card.Text>
-          <Button variant="primary" onClick={this.handleClick}>
+          <Button variant="secondary" onClick={this.handleClick}>
             Favourite
           </Button>
           <p>No of favourites &#xf6e2;: {this.state.noOfClicks}</p>
-          <Button onClick = {this.handleAdd}>Add to my library</Button>
+          <Button variant="secondary" onClick = {this.handleAdd}>Add to my library</Button>
         </Card.Body>
       </Card>
     );

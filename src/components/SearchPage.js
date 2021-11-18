@@ -37,12 +37,13 @@ class SearchPage extends React.Component {
         <Row className="g-2">
           <Col md={3}>
             <FloatingLabel
-              style={{ color: "grey" }}
+              style={{ color: "grey"}}
               controlId="floatingInputGrid"
               label="Enter A City Name"
             >
               <Form.Control
                 onChange={this.handleChangeCityName}
+                style={{height:'60px'}}
                 type="text"
                 placeholder="City Name"
                 value={this.state.value}
@@ -58,8 +59,9 @@ class SearchPage extends React.Component {
               <Form.Select
                 onChange={this.handleChangeStateName}
                 aria-label="Floating label select example"
+                style={{height:'60px'}}
               >
-                <option>Choose A State</option>
+                <option></option>
                 <option value="AL">AL</option>
                 <option value="AK">AK</option>
                 <option value="AZ">AZ</option>
@@ -114,18 +116,22 @@ class SearchPage extends React.Component {
             </FloatingLabel>
           </Col>
           <Col md={1}>
-            <Button variant="primary" type="submit" onClick={this.handleSubmit}>
+            <Button variant="secondary" style={{height:'60px'}} type="submit" onClick={this.handleSubmit}>
               Submit
             </Button>
           </Col>
         </Row>
+        <div id="content-div">
+        <Row xs={1} sm={2} md={3} id="card-column">
         {this.props.hauntedPlaces.length > 0 &&
           this.props.hauntedPlaces.map((place) => (
             <ResultsPage place={place} addLibraryPlaces={this.props.addLibraryPlaces}/>
           ))}
+        </Row>
         {this.props.hauntedPlaces.length > 0 && (
           <HauntedMap hauntedPlaces={this.props.hauntedPlaces} />
         )}
+        </div>
       </>
     );
   }
