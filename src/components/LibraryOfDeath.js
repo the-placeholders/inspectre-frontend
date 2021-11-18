@@ -12,7 +12,7 @@ class LibraryOfDeath extends React.Component {
     return (
       <>
         <h1>Library of Death</h1>
-        <HauntedCarousel savedPlaces={this.props.savedPlaces}/>
+        <HauntedCarousel savedPlaces={this.props.savedPlaces} handleDel={this.props.handleDel}/>
       </>
     );
   }
