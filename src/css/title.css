@@ -31,6 +31,17 @@ section {
 
   /* glow effect */
   filter: drop-shadow(0 1px 3px);
+  animation: fadeIn 20000ms;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
 }
 
 .layers {
@@ -518,7 +529,7 @@ section {
     -0.025em 0 0 rgba(0, 255, 0, 0.75), 0.025em 0 0 rgba(0, 0, 255, 0.75);
 
   animation: glitch 3540ms infinite;
-  animation: fadeIn 20000ms;
+  
 }
 
 h1 span {
@@ -542,16 +553,7 @@ h1 span:last-child {
   transform: translate(-0.05em, -0, 025em);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: rotateX(-10deg);
-  }
-  to {
-    opacity: 1;
-    transform: rotateX(0);
-  }
-}
+
 
 @keyframes glitch {
   0% {
