@@ -8,6 +8,11 @@
   filter: drop-shadow(0 1px 3px rgb(0, 238, 255));
 }
 
+LogoutButton {
+  margin-left: 20px;
+  filter: drop-shadow(0 1px 3px rgb(0, 238, 255));
+}
+
 #right-nav {
   margin-left: 60%;
 }
