@@ -5,33 +5,31 @@ import Button from "react-bootstrap/Button";
 class ResultsPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { noOfClicks: 0 ,
-      noOfConfirms: 0,
-      noOfDenys: 0,
-    };
+    this.state = { noOfClicks: 0, noOfConfirms: 0, noOfDenys: 0 };
   }
 
   updateTotal = () => {
-    this.setState({noOfClicks: this.state.noOfConfirms + this.state.noOfDenys + 1});
-  }
+    this.setState({
+      noOfClicks: this.state.noOfConfirms + this.state.noOfDenys + 1,
+    });
+  };
 
   handleConfirm = () => {
     this.setState({ noOfConfirms: this.state.noOfConfirms + 1 });
     this.updateTotal();
   };
 
-  handleDeny = () =>{
-    this.setState({ noOfDenys: this.state.noOfDenys + 1})
+  handleDeny = () => {
+    this.setState({ noOfDenys: this.state.noOfDenys + 1 });
     this.updateTotal();
-  }
+  };
 
-
-  handleAdd =()=>{
-    this.props.addLibraryPlaces(this.props.place)
-  }
+  handleAdd = () => {
+    this.props.addLibraryPlaces(this.props.place);
+  };
   render() {
     return (
-      <Card style={{ width: "26rem" }}>
+      <Card style={{ background: "#111", width: "26rem" }}>
         <Card.Img
           variant="top"
           src={
@@ -45,17 +43,20 @@ class ResultsPage extends React.Component {
           <Card.Title>{this.props.place.location}</Card.Title>
           <Card.Text>
             {this.props.place.description}
-            Latitude : {this.props.place.latitude}
-            Longitude :{this.props.place.longitude}
+            <br />
+            Latitude : {this.props.place.latitude} Longitude :{" "}
+            {this.props.place.longitude}
           </Card.Text>
           <Button variant="secondary" onClick={this.handleConfirm}>
             👻{`: ${this.state.noOfConfirms}`}
           </Button>
-          <Button  variant="secondary" onClick={this.handleDeny}>
+          <Button variant="secondary" onClick={this.handleDeny}>
             🚫{`: ${this.state.noOfDenys}`}
           </Button>
           <p>Visits: {this.state.noOfClicks}</p>
-          <Button variant="secondary" onClick = {this.handleAdd}>Add to my library</Button>
+          <Button variant="secondary" onClick={this.handleAdd}>
+            Add to my library
+          </Button>
         </Card.Body>
       </Card>
     );
