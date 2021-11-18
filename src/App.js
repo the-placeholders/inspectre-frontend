@@ -49,16 +49,16 @@ class App extends React.Component {
     }
   };
 
-  handleDel = async(loc)=>{
-    
-    let remainingPlaces = this.state.savedPlaces.filter(place=> place !== loc)
-    this.setState({savedPlaces: remainingPlaces})
+  handleDel = async (loc) => {
+
+    let remainingPlaces = this.state.savedPlaces.filter(place => place !== loc)
+    this.setState({ savedPlaces: remainingPlaces })
     console.log(`remianing places : ${remainingPlaces}`)
     this.putUserLibrary();
   }
 
 
-  
+
   getHauntedPlaces = async (cityName, stateName) => {
     const url = `${process.env.REACT_APP_SERVER_URL}/location?city=${cityName}&state=${stateName}`;
     console.log(process.env.REACT_APP_SERVER_URL);
@@ -107,12 +107,14 @@ class App extends React.Component {
   render() {
     return (
       <>
-
-        
+        {!this.props.auth0.isAuthenticated ?
+          <>
               <Header />
               <Main />
+          </>
+          :
            
-        {this.props.auth0.isAuthenticated && (
+     
           <>
 
             <Router>
@@ -140,7 +142,7 @@ class App extends React.Component {
               </Switch>
             </Router>
           </>
-        )}
+        }
         <Footer />
       </>
     );
