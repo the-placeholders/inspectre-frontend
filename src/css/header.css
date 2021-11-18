@@ -1,5 +1,12 @@
+@font-face {
+  font-family: scaryfont;
+  src: url(../fonts/watcher.ttf);
+}
+
+
 #logo {
   margin-left: 20px;
+  font-family: scaryfont;
 }
 
 #right-nav {
