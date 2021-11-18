@@ -1,21 +1,26 @@
 body {
   background-color: black;
 }
-#card-column {
-  display:inline-block;
-  height:600px;
-  width:600px;
-  overflow-y: scroll;
-  margin-left: 50px;
-}
-.leaflet-container{
-  display:inline-block;
-  margin-right:50px;
+#search-background {
+  background-image: url(../images/foggyRoad.jpg);
+  height: 100vh;
 }
 
-#content-div{
+#card-column {
+  display: inline-block;
+  height: 600px;
+  width: 600px;
+  overflow-y: auto;
+  margin-left: 50px;
+}
+.leaflet-container {
+  display: inline-block;
+  margin-right: 50px;
+}
+
+#content-div {
   max-height: 600px;
   margin-top: 30px;
-  display:flex;
+  display: flex;
   justify-content: space-between;
 }
