@@ -108,14 +108,10 @@ class App extends React.Component {
     return (
       <>
 
-        <Router>
-          <Switch>
-            <Route exact path="/">
+        
               <Header />
               <Main />
-            </Route>
-          </Switch>
-        </Router>
+           
         {this.props.auth0.isAuthenticated && (
           <>
 
