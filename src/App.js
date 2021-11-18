@@ -49,10 +49,13 @@ class App extends React.Component {
     }
   };
 
-  // componentDidMount() {
-  //   this.getUserLibrary();
-  // }
-
+  handleDel = async(loc)=>{
+    let url = `${process.env.REACT_APP_SERVER_URL}/library`;
+    let remainingPlaces = this.state.savedPlaces.filter(place=> place !== loc)
+    await axios.put(url)
+    this.setState({savedPlaces: remainingPlaces})
+    console.log(`remianing places : ${remainingPlaces}`)
+  }
   getHauntedPlaces = async (cityName, stateName) => {
     const url = `${process.env.REACT_APP_SERVER_URL}/location?city=${cityName}&state=${stateName}`;
     console.log(process.env.REACT_APP_SERVER_URL);
@@ -121,6 +124,7 @@ class App extends React.Component {
                     getUserLibrary={this.getUserLibrary}
                     user={this.props.auth0.user}
                     savedPlaces={this.state.savedPlaces}
+                    handleDel={this.handleDel}
                   />
                 </Route>
                 <Route exact path="/searchpage">

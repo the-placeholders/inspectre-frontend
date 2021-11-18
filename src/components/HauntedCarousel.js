@@ -9,7 +9,7 @@ export default class HauntedCarousel extends Component {
         return (
             <Container>
             <Carousel>
-                  {this.props.savedPlaces.map(place => <Carousel.Item><CarouselItem place={place}/></Carousel.Item>)}
+                  {this.props.savedPlaces.map(place => <Carousel.Item><CarouselItem place={place} handleDel={this.props.handleDel}/></Carousel.Item>)}
             </Carousel>
             </Container>
         )
