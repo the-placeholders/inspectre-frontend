@@ -90,7 +90,7 @@ Searching for a fright? Inspectre is an application that lets users search for h
 - How will you communicate that it’s time to merge?
   - Once we push it up we can message each other to take a look.
 
-<img src = './images/Inspecter.png'>
+<img src = './src/images/Inspecter.png'>
 
 <a href = 'https://trello.com/b/RzdRKIEg/inspectre-project-board'>User Stories</a>
 
@@ -100,7 +100,7 @@ Searching for a fright? Inspectre is an application that lets users search for h
 
 ## Design Wireframe
 
-<img src= './images/InspectreWireFrame.jpg'>
+<img src= './src/images/InspectreWireFrame.jpg'>
 
 ## Credits
 
