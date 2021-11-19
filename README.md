@@ -94,6 +94,8 @@ Searching for a fright? Inspectre is an application that lets users search for h
 
 <a href = 'https://trello.com/b/RzdRKIEg/inspectre-project-board'>User Stories</a>
 
+## Location Schema
+
 <img src = 'https://github.com/the-placeholders/inspectre-frontend/blob/andrew/images/LocationSchema.PNG?raw=true'>
 
 ## Design Wireframe
