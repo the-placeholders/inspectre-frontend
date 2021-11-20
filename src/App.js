@@ -49,9 +49,9 @@ class App extends React.Component {
     }
   };
 
-  handleDel = async (loc) => {
-
-    let remainingPlaces = this.state.savedPlaces.filter(place => place !== loc)
+  handleDel = async (toRemove) => {
+    console.log(`savedPlaces: ${this.state.savedPlaces}`);
+    let remainingPlaces = this.state.savedPlaces.filter(place => place !== toRemove)
     this.setState({ savedPlaces: remainingPlaces })
     console.log(`remianing places : ${remainingPlaces}`)
     this.putUserLibrary();
@@ -83,7 +83,7 @@ class App extends React.Component {
     if (this.props.auth0.isAuthenticated) {
       const res = await this.props.auth0.getIdTokenClaims();
       const jwt = res.__raw;
-      console.log(jwt);
+      //console.log(jwt);
       const config = {
         headers: { Authorization: `Bearer ${jwt}` },
         method: "put",
@@ -96,7 +96,7 @@ class App extends React.Component {
         }
       };
       const userLibrary = await axios(config);
-      console.log(userLibrary.data);
+      //console.log(userLibrary.data);
       this.getUserLibrary()
 
     } else {
